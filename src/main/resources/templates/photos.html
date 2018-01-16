@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Title</title>
-
-  <form action="/photos" method="post" enctype="multipart/form-data">
-    ファイル：<br />
+</head>
+<body>
+  <h1>画像をアップロード</h1>
+  <form action="#" th:action="@{/photos}" method="post" enctype="multipart/form-data">
     <input type="file" accept="image/*" name="image" /><br />
     <input type="submit" value="送信"/>
   </form>
-</head>
-<body>
-
 </body>
 </html>

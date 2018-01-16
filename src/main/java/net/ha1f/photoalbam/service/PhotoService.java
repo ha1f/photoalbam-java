@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +51,30 @@ public class PhotoService {
         return repository.findAll();
     }
 
+    private Optional<String> extensionFromContentType(String contentType) {
+        if ("image/jpeg".equals(contentType)) {
+            return Optional.of("jpg");
+        } else if ("image/png".equals(contentType)) {
+            return Optional.of("png");
+        } else if ("image/gif".equals(contentType)) {
+            return Optional.of("gif");
+        } else if ("image/bmp".equals(contentType)) {
+            return Optional.of("bmp");
+        }
+        return Optional.empty();
+    }
+
+    public Photo findById(String photoId) {
+        return repository.findOne(photoId);
+    }
+
     public String addImage(MultipartFile multipartFile) {
-        Path filePath = generateFilePath(".png");
+        Optional<String> extension = extensionFromContentType(multipartFile.getContentType());
+        if (!extension.isPresent()) {
+            return "";
+        }
+
+        Path filePath = generateFilePath("." + extension.get());
 
         try (OutputStream os = Files.newOutputStream(filePath, StandardOpenOption.CREATE)) {
             os.write(multipartFile.getBytes());
@@ -61,7 +84,7 @@ public class PhotoService {
             return photo.getId();
         } catch (IOException ex) {
             System.err.println(ex);
-            return "error";
+            return "";
         }
     }
 }
