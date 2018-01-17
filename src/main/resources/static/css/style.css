@@ -1,0 +1,24 @@
+img {
+  display: block;
+}
+
+.photo-collection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.photo-collection-cell {
+  margin: 10px;
+  width: 600px;
+  text-align: center;
+}
+
+.photo-collection-cell img {
+  width: 600px;
+  height: 450px;
+  object-fit: cover;
+}
+
