@@ -19,7 +19,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.io.ByteStreams;
 
 @Service
-public class PhotoFileService {
+class PhotoFileService {
 
     private static final String imageFolderPathString = "/Users/st20591/photoalbam/photos";
     private static final Map<String, String> contentTypeExtensionMap = ImmutableMap.of(
