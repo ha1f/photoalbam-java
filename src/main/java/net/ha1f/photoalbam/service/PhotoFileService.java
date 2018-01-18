@@ -21,7 +21,6 @@ import com.google.common.io.ByteStreams;
 @Service
 public class PhotoFileService {
 
-    private static final String imageFolderPathString = "/Users/st20591/photoalbam/photos";
     private static final Map<String, String> contentTypeExtensionMap = ImmutableMap.of(
             MediaType.IMAGE_JPEG_VALUE, "jpg",
             MediaType.IMAGE_PNG_VALUE, "png",
@@ -33,6 +32,8 @@ public class PhotoFileService {
             "png", MediaType.IMAGE_PNG,
             "gif", MediaType.IMAGE_GIF
     );
+
+    private final String imageFolderPathString = "/Users/st20591/photoalbam/photos";
 
     private Path generateFolderPath() {
         Path folderPath = Paths.get(imageFolderPathString);

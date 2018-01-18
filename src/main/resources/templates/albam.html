@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+<h1 th:text="${albam.name}"></h1>
+<div class="photo-collection">
+  <div class="photo-collection-cell" th:each="photo : ${photos}">
+    <a th:href="${'/photos/' + photo.id}">
+      <img th:src="${'/photos/' + photo.id}" th:alt="${photo.id}" />
+    </a>
+    <span th:text="${photo.getFileName()}"></span>
+  </div>
+</div>
+</body>
+</html>

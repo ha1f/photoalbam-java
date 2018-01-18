@@ -18,4 +18,6 @@ public class Albam {
     String passwordHash;
 
     List<String> photoIds;
+
+    String teamId;
 }

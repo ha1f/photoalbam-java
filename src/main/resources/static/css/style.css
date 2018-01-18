@@ -2,6 +2,10 @@ img {
   display: block;
 }
 
+h1 {
+  text-align: center;
+}
+
 .photo-collection {
   display: flex;
   flex-flow: row wrap;
