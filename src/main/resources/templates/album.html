@@ -14,6 +14,7 @@
 <body>
 <div id="container" class="container">
   <h1 th:text="${album.title}"></h1>
+  <span style="text-align:left"><a th:href="@{/album}">一覧に戻る</a></span>
   <p th:text="${album.description}"></p>
   <div class="photo-collection">
     <div class="photo-collection-cell" th:each="photo : ${photos}">

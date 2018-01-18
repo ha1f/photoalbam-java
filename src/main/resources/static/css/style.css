@@ -4,11 +4,21 @@ img {
 
 h1, p {
   text-align: center;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .container {
   max-width: 1500px;
-  margin: 0 auto 50px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  width: 100%;
+  height: 100%;
 }
 
 .photo-collection {
