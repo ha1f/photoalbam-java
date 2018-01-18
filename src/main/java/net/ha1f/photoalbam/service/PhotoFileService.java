@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,14 +34,15 @@ class PhotoFileService {
             "gif", MediaType.IMAGE_GIF
     );
 
-    private final String imageFolderPathString = "/Users/st20591/photoalbam/photos";
+    @Value("${app.photo.folder.path}")
+    private String imageFolderPathString;
 
     private Path generateFolderPath() {
         Path folderPath = Paths.get(imageFolderPathString);
 
         if (!Files.exists(folderPath)) {
             try {
-                Files.createDirectory(folderPath);
+                Files.createDirectories(folderPath);
             } catch (IOException ex) {
                 System.err.println(ex);
             }

@@ -1,0 +1,16 @@
+spring.profiles.active: prod
+
+---
+spring.profiles: prod
+app:
+  photo:
+    folder:
+      path: /home1/irteam/photoalbum/photos
+
+---
+spring.profiles: local
+app:
+  photo:
+    folder:
+      path: /Users/st20591/photoalbam/photos
+
