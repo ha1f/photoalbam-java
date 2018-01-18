@@ -33,7 +33,7 @@ class PhotoFileService {
             "gif", MediaType.IMAGE_GIF
     );
 
-    private final String imageFolderPathString = "/home/photoalbam/photos";
+    private final String imageFolderPathString = "/Users/st20591/photoalbam/photos";
 
     private Path generateFolderPath() {
         Path folderPath = Paths.get(imageFolderPathString);
