@@ -46,6 +46,13 @@ public class AlbumController {
         return "Album created: <a href=\"./" + albumId + "\">link</a>";
     }
 
+    @RequestMapping(value = "/{albumId}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteById(@PathVariable("albumId") String albumId) {
+        albumService.deleteById(albumId);
+        return "deleted";
+    }
+
     @RequestMapping(value = "/{albumId}", method = RequestMethod.GET)
     public ModelAndView getById(@PathVariable("albumId") String albumId) {
         Album album = albumService.findById(albumId);

@@ -39,8 +39,12 @@ public class AlbumService {
         return repository.findAll();
     }
 
-    public Album findById(String albamId) {
-        return repository.findOne(albamId);
+    public Album findById(String albumId) {
+        return repository.findOne(albumId);
+    }
+
+    public void deleteById(String albumId) {
+        repository.delete(albumId);
     }
 
     private static Album buildAlbum(String title, String passwordHash) {
