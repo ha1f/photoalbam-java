@@ -67,10 +67,10 @@ public class AlbumController {
     @RequestMapping(value = "/{albumId}/photos", method = RequestMethod.POST)
     @ResponseBody
     public String appendPhoto(@PathVariable("albumId") final String albumId,
-                              @RequestParam("images[]") final MultipartFile[] multipartFile) {
+                              @RequestParam("images[]") final MultipartFile[] multipartFiles) {
         List<Boolean> results = new ArrayList<>();
         // TODO: 権限確認
-        Stream.of(multipartFile).forEach(file -> {
+        Stream.of(multipartFiles).forEach(file -> {
             boolean hasSucceeded = albumService.appendPhoto(albumId, file);
             results.add(hasSucceeded);
         });
