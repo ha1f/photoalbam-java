@@ -1,5 +1,7 @@
 package net.ha1f.photoalbam.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,5 +15,5 @@ public class Team {
 
     String name;
 
-    // members
+    List<String> memberIds;
 }

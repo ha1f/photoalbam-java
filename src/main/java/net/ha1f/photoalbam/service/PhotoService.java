@@ -23,6 +23,10 @@ public class PhotoService {
         return repository.findAll();
     }
 
+    public Iterable<Photo> findAll(Iterable<String> ids) {
+        return repository.findAll(ids);
+    }
+
     public Optional<Photo> findById(String photoId) {
         return Optional.ofNullable(repository.findOne(photoId));
     }
@@ -40,7 +44,18 @@ public class PhotoService {
         return fileService.readFile(photo.getFilePath());
     }
 
-    public Optional<String> addImage(MultipartFile multipartFile) {
+    public boolean deleteImage(String photoId) {
+        Photo photo = repository.findOne(photoId);
+        if (photo == null) {
+            return false;
+        }
+        return fileService.deleteFile(photo.getFilePath());
+    }
+
+    public Optional<String> saveImage(MultipartFile multipartFile) {
+        if (multipartFile.isEmpty()) {
+            return Optional.empty();
+        }
         return fileService.saveFile(multipartFile)
                           .map(path -> {
                               Photo photo = new Photo();

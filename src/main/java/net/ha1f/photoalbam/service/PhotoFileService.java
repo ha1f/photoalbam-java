@@ -74,6 +74,16 @@ class PhotoFileService {
         }
     }
 
+    public boolean deleteFile(String pathString) {
+        try {
+            Files.delete(Paths.get(pathString));
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public Optional<Path> saveFile(MultipartFile multipartFile) {
         Optional<String> extension = extensionFromContentType(multipartFile.getContentType());
         // 規定のcontentType以外保存しない

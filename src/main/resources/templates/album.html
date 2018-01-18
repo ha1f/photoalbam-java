@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Title</title>
+  <title th:text="${'PhotoAlbum: ' + album.title}"></title>
   <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>画像一覧</h1>
 <div class="container">
+  <h1 th:text="${album.title}"></h1>
+  <p th:text="${album.description}"></p>
   <div class="photo-collection">
     <div class="photo-collection-cell" th:each="photo : ${photos}">
       <a th:href="${'/photo/' + photo.id}">
@@ -17,6 +22,14 @@
       </a>
       <span th:text="${photo.getFileName()}"></span>
     </div>
+  </div>
+  <div class="form-container">
+    <form id="form-images" action="#" th:action="@{/album/{albumId}/photos(albumId = ${album.id})}"
+          method="post"
+          enctype="multipart/form-data">
+      <input type="file" accept="image/*" name="images[]" multiple="multiple" /><br />
+      <input type="submit" value="送信" />
+    </form>
   </div>
 </div>
 </body>

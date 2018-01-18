@@ -2,27 +2,36 @@ img {
   display: block;
 }
 
-h1 {
+h1, p {
   text-align: center;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .photo-collection {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  max-width: 1300px;
-  margin: 0 auto;
 }
 
 .photo-collection-cell {
   margin: 10px;
-  width: 600px;
+  width: 480px;
   text-align: center;
 }
 
 .photo-collection-cell img {
-  width: 600px;
-  height: 450px;
+  width: 480px;
+  height: 360px;
   object-fit: cover;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 

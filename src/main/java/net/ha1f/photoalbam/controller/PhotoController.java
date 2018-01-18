@@ -18,7 +18,7 @@ import net.ha1f.photoalbam.service.PhotoService;
 import com.google.common.collect.ImmutableList;
 
 @Controller
-@RequestMapping("photos")
+@RequestMapping("photo")
 public class PhotoController {
 
     @Autowired
@@ -32,10 +32,7 @@ public class PhotoController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public String post(@RequestParam("image") MultipartFile multipartFile) {
-        if (multipartFile.isEmpty()) {
-            return "error";
-        }
-        return photoService.addImage(multipartFile).orElse("error");
+        return photoService.saveImage(multipartFile).orElse("error");
     }
 
     @RequestMapping(value = "", method = RequestMethod.DELETE)

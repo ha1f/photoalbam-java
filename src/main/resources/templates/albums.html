@@ -8,13 +8,16 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
-<h1 th:text="${albam.name}"></h1>
-<div class="photo-collection">
-  <div class="photo-collection-cell" th:each="photo : ${photos}">
-    <a th:href="${'/photos/' + photo.id}">
-      <img th:src="${'/photos/' + photo.id}" th:alt="${photo.id}" />
-    </a>
-    <span th:text="${photo.getFileName()}"></span>
+<div class="container">
+  <h1>アルバム一覧</h1>
+  <div class="album-collection">
+    <div class="album-collection-cell" th:each="album : ${albums}">
+      <a th:href="${'/album/' + album.id}">
+        <span th:text="${album.title}"></span>
+      </a>
+      <span th:text="${album.photoIds.toString()}"></span>
+      <br />
+    </div>
   </div>
 </div>
 </body>

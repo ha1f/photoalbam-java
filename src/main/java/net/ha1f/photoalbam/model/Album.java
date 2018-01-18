@@ -13,7 +13,9 @@ public class Album {
     @Id
     String id;
 
-    String name;
+    String title;
+
+    String description;
 
     String passwordHash;
 
