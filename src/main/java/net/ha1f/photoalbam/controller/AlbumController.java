@@ -10,26 +10,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.ha1f.photoalbam.model.Albam;
+import net.ha1f.photoalbam.model.Album;
 import net.ha1f.photoalbam.model.Photo;
-import net.ha1f.photoalbam.service.AlbamService;
+import net.ha1f.photoalbam.service.AlbumService;
 
 @Controller
-@RequestMapping("albams")
-public class AlbamController {
+@RequestMapping("albums")
+public class AlbumController {
 
     @Autowired
-    AlbamService albamService;
+    AlbumService albamService;
+
+    private AlbumService albumService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
+
     public String index() {
-        return albamService.findAll().toString();
+        return albumService.findAll().toString();
     }
 
     @RequestMapping(value = "/{albamId}", method = RequestMethod.GET)
     public ModelAndView getById(@PathVariable("albamId") String albamId) {
-        Albam albam = albamService.findById(albamId);
+        Album albam = albamService.findById(albamId);
         if (albam == null) {
             // error
             return new ModelAndView();

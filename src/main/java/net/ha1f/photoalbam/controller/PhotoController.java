@@ -22,7 +22,7 @@ import com.google.common.collect.ImmutableList;
 public class PhotoController {
 
     @Autowired
-    PhotoService photoService;
+    private PhotoService photoService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index() {

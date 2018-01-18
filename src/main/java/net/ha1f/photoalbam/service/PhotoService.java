@@ -14,10 +14,10 @@ import net.ha1f.photoalbam.repository.PhotoRepository;
 public class PhotoService {
 
     @Autowired
-    PhotoRepository repository;
+    private PhotoRepository repository;
 
     @Autowired
-    PhotoFileService fileService;
+    private PhotoFileService fileService;
 
     public Iterable<Photo> findAll() {
         return repository.findAll();

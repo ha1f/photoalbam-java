@@ -19,7 +19,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.io.ByteStreams;
 
 @Service
-public class PhotoFileService {
+class PhotoFileService {
 
     private static final Map<String, String> contentTypeExtensionMap = ImmutableMap.of(
             MediaType.IMAGE_JPEG_VALUE, "jpg",
